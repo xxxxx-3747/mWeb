@@ -1,0 +1,70 @@
+/*版心*/
+.jd_container{
+    min-width: 320px;
+    max-width: 640px;
+    width: 100%;
+    height: 1000px;
+    margin: 0 auto;
+    background-color: #f1b0b7;
+}
+/*顶部搜索*/
+.jd_search{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.jd_search .jd_search_box {
+    height: 40px;
+    min-width: 320px;
+    max-width: 640px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    background: rgba(201,21,35,0.85);
+}
+.jd_search .icon_logo {
+    background-position: 0 -103px;
+    width: 60px;
+    height: 36px;
+    position: absolute;
+    top: 3px;
+    /*background-color: #fd7e14;*/
+}
+.jd_search form {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 50px;
+    position: relative;
+
+}
+.jd_search form .icon_search{
+    background-position: -60px -109px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    /*background-color: #fd7e14;*/
+    top: 10px;
+    left: 80px;
+}
+.jd_search form input{
+    width: 100%;
+    height: 30px;
+    line-height: 40px;
+    /*position: absolute;*/
+    margin-top: 5px;
+    border-radius: 15px;
+    padding-left: 40px;
+}
+.jd_search .login{
+    color:#fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+
+}
