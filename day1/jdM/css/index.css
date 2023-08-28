@@ -1,20 +1,27 @@
+body {
+    background-color: #f5f5f5;
+}
+
 /*版心*/
-.jd_container{
+.jd_container {
     min-width: 320px;
     max-width: 640px;
     width: 100%;
     height: 1000px;
     margin: 0 auto;
-    background-color: #f1b0b7;
+    background-color: #f5f5f5;
 }
+
 /*顶部搜索*/
-.jd_search{
+.jd_search {
     width: 100%;
     height: 40px;
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 1000;
 }
+
 .jd_search .jd_search_box {
     height: 40px;
     min-width: 320px;
@@ -22,8 +29,9 @@
     width: 100%;
     position: relative;
     margin: 0 auto;
-    background: rgba(201,21,35,0.85);
+    background: rgba(201, 21, 35, 0);
 }
+
 .jd_search .icon_logo {
     background-position: 0 -103px;
     width: 60px;
@@ -32,6 +40,7 @@
     top: 3px;
     /*background-color: #fd7e14;*/
 }
+
 .jd_search form {
     width: 100%;
     padding-left: 70px;
@@ -39,7 +48,8 @@
     position: relative;
 
 }
-.jd_search form .icon_search{
+
+.jd_search form .icon_search {
     background-position: -60px -109px;
     width: 20px;
     height: 20px;
@@ -48,7 +58,8 @@
     top: 10px;
     left: 80px;
 }
-.jd_search form input{
+
+.jd_search form input {
     width: 100%;
     height: 30px;
     line-height: 40px;
@@ -57,8 +68,9 @@
     border-radius: 15px;
     padding-left: 40px;
 }
-.jd_search .login{
-    color:#fff;
+
+.jd_search .login {
+    color: #fff;
     position: absolute;
     top: 0;
     right: 0;
@@ -66,5 +78,295 @@
     height: 40px;
     line-height: 40px;
     text-align: center;
+}
+
+/*轮播图模块*/
+.jd_banner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.jd_banner ul:first-child {
+    width: 1000%;
+    transform: translateX(-10%);
+    -webkit-transform: translateX(-10%);
+    /*float: left;*/
+}
+
+.jd_banner ul:first-child li {
+    width: 10%;
+    float: left;
+}
+
+.jd_banner ul:first-child li a {
+    width: 100%;
+    display: block;
+}
+
+.jd_banner ul:first-child li a img {
+    width: 100%;
+    display: block;
+}
+
+.jd_banner ul:last-child {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.jd_banner ul:last-child li {
+    width: 6px;
+    height: 6px;
+    float: left;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.jd_banner ul:last-child li:last-child {
+    margin-right: 0px;
+}
+
+.jd_banner ul:last-child li.now {
+    background-color: #fff;
+}
+
+/*导航栏*/
+.jd_nav {
+    width: 100%;
+    /*margin-top: 10px;*/
+    margin-bottom: 10px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.jd_nav ul {
+    width: 100%;
+    /*margin: 0 auto;*/
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.jd_nav ul li {
+    width: 25%;
+    float: left;
+    margin-top: 3px;
+}
+
+.jd_nav ul li a {
+    width: 100%;
+    display: block;
 
 }
+
+.jd_nav ul li a img {
+    display: block;
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+}
+
+.jd_nav ul li a p {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+/*产品区块*/
+.jd_product {
+    /*width: 100%;*/
+    padding: 0 5px;
+}
+
+.jd_product .jd_product_box {
+    margin-top: 10px;
+    box-shadow: 0 0 2px #ccc;
+    background: #fff;
+    /*height: 200px;*/
+}
+
+.jd_product .jd_product_box .thead {
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+
+.jd_product .jd_product_box .tbody {
+}
+
+.jd_product .jd_product_box .thead h3::before {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 12px;
+    background-color: #d8505c;
+    position: absolute;
+    top: 11px;
+    left: 10px;
+
+}
+
+.jd_product .jd_product_box .thead h3 {
+    position: absolute;
+    /*left: 20px;*/
+    font-weight: normal;
+    color: #000;
+    padding-left: 23px;
+}
+
+.jd_product .jd_product_box .tbody {
+    /*width: 100%;*/
+}
+
+.jd_product .jd_product_box .tbody a {
+    width: 50%;
+}
+
+.jd_product .jd_product_box .tbody a img {
+    width: 100%;
+    display: block;
+}
+
+/*秒杀部分*/
+.jd_product .jd_product_box.sk .thead {
+    border-bottom: 0px;
+}
+
+.jd_product .jd_product_box.sk .thead .icon {
+    background: url("../images/seckill-icon.png") no-repeat center/16px 20px;
+    width: 16px;
+    height: 20px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 7px;
+}
+
+.jd_product .jd_product_box.sk .thead .txt {
+    color: #d8505c;
+    float: left;
+    margin-left: 16px;
+    font-size: 16px;
+
+}
+
+.jd_product .jd_product_box.sk .thead .time {
+    float: left;
+    margin-left: 10px;
+    transform: translateY(55%);
+
+}
+
+.jd_product .jd_product_box.sk .thead .time span {
+    float: left;
+    display: block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    margin-left: 2px;
+}
+
+.jd_product .jd_product_box.sk .thead .time span:nth-child(3n) {
+    background-color: #fff;
+    color: #000;
+}
+
+.jd_product .jd_product_box.sk .thead .more {
+    float: right;
+    margin-right: 10px;
+    color: #000;
+}
+
+/*秒杀图片部分*/
+.jd_product .jd_product_box.sk .tbody {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.jd_product .jd_product_box.sk .tbody ul {
+    margin-top: 10px;
+
+}
+
+.jd_product .jd_product_box.sk .tbody ul li {
+    width: 33.3333%;
+    float: left;
+}
+
+.jd_product .jd_product_box.sk .tbody ul li a {
+    width: 100%;
+    display: block;
+}
+
+.jd_product .jd_product_box.sk .tbody ul li:nth-child(2) a {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.jd_product .jd_product_box.sk .tbody ul li a img {
+    display: block;
+    margin: 0 auto;
+    width: 64%;
+}
+
+.jd_product .jd_product_box.sk .tbody .old {
+    width: 100%;
+    text-align: center;
+    color: #666666;
+    text-decoration: line-through;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: 350;
+}
+
+.jd_product .jd_product_box.sk .tbody .new {
+    width: 100%;
+    text-align: center;
+    color: #d8505c;
+    margin-top: 5px;
+    font-weight: normal;
+
+}
+
+/*公共样式*/
+.br {
+    border-right: 1px solid #ddd;
+}
+
+.bl {
+    border-left: 1px solid #ddd;
+}
+
+.bt {
+    border-top: 1px solid #ddd;
+}
+
+.bb {
+    border-bottom: 1px solid #ddd;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.ft {
+    float: top;
+}
+
+.fb {
+    float: bottom;
+}
+
+
+
+
