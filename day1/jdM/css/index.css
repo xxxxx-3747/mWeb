@@ -90,6 +90,7 @@ body {
 .jd_banner ul:first-child {
     width: 1000%;
     transform: translateX(-10%);
+    /*transform: translateX(-1024px);*/
     -webkit-transform: translateX(-10%);
     /*float: left;*/
 }

@@ -41,43 +41,80 @@ var search = function () {
 var banner = function () {
     //获取轮播图的宽度
     var banner = document.querySelector('.jd_banner');
-    var bannerWidth = banner.offsetWidth;
+
     //获取图片容器
-    var bannerImg=banner.querySelector('ul:first-child');
+    var bannerImg = banner.querySelector('ul:first-child');
+    // console.log(bannerImg);
     //获取所有的图片
-    var imgObj=bannerImg.querySelector('li');
+    var imgObj = bannerImg.querySelector('li');
     //点容器
-    var bannerImg=banner.querySelector('ul:last-child');
-    // console.log(bannerWidth);
+    var bannerPoint = banner.querySelector('ul:last-child');
+
+    //所有的点
+    var point = bannerPoint.querySelectorAll('li');
+
+    var bannerWidth = banner.offsetWidth;
+
     var index = 1;
-    
-    var addTransition=function () {
-        bannerImg.style.transition='all 0.2s';
-        bannerImg.style.webkittransition='all 0.2s';
+    //添加过度
+    var addTransition = function () {
+        bannerImg.style.transition = 'all 0.2s';
+        bannerImg.style.webkittransition = 'all 0.2s';
 
     }
-    var removeTransition=function () {
-        bannerImg.style.transition='none';
-        bannerImg.style.webkittransition='none';
 
+    //清除过度
+    var removeTransition = function () {
+        bannerImg.style.transition = 'none';
+        bannerImg.style.webkittransition = 'none';
     }
-    var setTranslateX=function (translateX) {
-        bannerImg.style.transform='translateX('+translateX+')px';
-        bannerImg.style.webkittransform='translateX('+translateX+')px';
 
+    //设置位移
+    var setTranslateX = function (translateX) {
+        bannerImg.style.transform = 'translateX(' + translateX + 'px)';
+        bannerImg.style.webkittransform = 'translateX(' + translateX + 'px)';
     }
-    bannerImg.style.transform='translateX(-2056)px';
-    // console.log(bannerImg.clientWidth);
-    var timeId=setInterval(function () {
+    //点样式改变
+    var pointStyle = function () {
+        //清除所有的样式
+        for (var i = 0; i < point.length; i++) {
+            point[i].classList.remove('now');
+        }
+        //相应的添加样式
+        point[index - 1].classList.add('now');
+    }
+
+
+    //自动播放
+    var timeId = setInterval(function () {
         index++;
-        var translateX=-index*bannerWidth;
-        // console.log(translateX);
+        var translateX = -index * bannerWidth;
+
+        setTranslateX(translateX);
         addTransition();
-        setTranslateX(-index*bannerWidth);
+
+    }, 1500);
+//最后一张结束时，做过度
+    bannerImg.addEventListener('transitionend', function () {
+
+        if (index >= 9) {
+            index = 1;
+            removeTransition();
+            setTranslateX(-index * bannerWidth);
+        } else if (index <= 0) {
+            index = 8;
+            removeTransition();
+            setTranslateX(-index * bannerWidth);
+        }
+        // console.log(index);
+        pointStyle();
+    })
 
 
-    },1000);
-
-
+    //手动移动
+    bannerImg.addEventListener('touchstart',function () {
+        console.log('xx');
+        clearInterval(timeId);
+    });
 }
 
