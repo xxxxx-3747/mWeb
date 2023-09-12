@@ -29,7 +29,7 @@ body {
     width: 100%;
     position: relative;
     margin: 0 auto;
-    background: rgba(201, 21, 35, 0.85 );
+    background: rgba(201, 21, 35, 0 );
 }
 
 .jd_search .icon_logo {
@@ -366,6 +366,14 @@ body {
 .fb {
     float: bottom;
 }
+
+
+
+
+
+
+
+
 
 
 
