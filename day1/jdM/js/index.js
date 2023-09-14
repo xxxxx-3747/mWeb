@@ -4,6 +4,7 @@ window.onload = function () {
     // 2.轮播图
     banner();
     // 3.倒计时
+    time();
 
 
 };
@@ -110,11 +111,126 @@ var banner = function () {
         pointStyle();
     })
 
+    //记录起始位置
+    var startX = 0;
+    //记录结束位置
+    var endX = 0;
+
+    //记录移动的位置
+    var distinct = 0;
 
     //手动移动
-    bannerImg.addEventListener('touchstart',function () {
-        console.log('xx');
+    bannerImg.addEventListener('touchstart', function (e) {
         clearInterval(timeId);
+        //获取起始的位置
+        startX = e.touches[0].clientX;
+        // console.log(startX);
     });
+    bannerImg.addEventListener('touchmove', function (e) {
+        //console.log(e);
+        endX = e.touches[0].clientX;
+
+        //获取移动的位置
+        distinct = endX - startX;
+
+        setTranslateX(-index * bannerWidth + distinct);
+        addTransition();
+    });
+    bannerImg.addEventListener('touchend', function () {
+
+        if (Math.abs(distinct) > bannerWidth / 3) {
+            //切换
+            if (distinct > 0) {
+                //上一张
+                index--;
+                var translateX = -index * bannerWidth;
+                setTranslateX(translateX);
+                addTransition();
+            } else {
+                //下一张
+                index++;
+                var translateX = -index * bannerWidth;
+                setTranslateX(translateX);
+                addTransition();
+            }
+        } else {
+            //吸附回去
+            var translateX = -index * bannerWidth;
+            setTranslateX(translateX);
+            addTransition();
+
+        }
+        timeId = setInterval(function () {
+            index++;
+            var translateX = -index * bannerWidth;
+
+            setTranslateX(translateX);
+            addTransition();
+
+        }, 1500);
+
+    })
 }
+
+//倒计时
+var time = function () {
+
+
+
+}
+
+
+
+update rt_config_new set ext_station='五团输气站' where ext_station='阿克苏末站';
+update rt_config_new set ext_station='英喀3#阀室' where ext_station='RTU3#阀室';
+update rt_config_new set ext_station='阿克苏输气站' where ext_station='阿克苏清管站';
+update rt_config_new set ext_station='阿瓦提门站' where ext_station='阿瓦提末站';
+update rt_config_new set ext_station='乌什门站' where ext_station='乌什分输站';
+update rt_config_new set ext_station='3团门站' where ext_station='团3末站';
+update rt_config_new set ext_station='英喀11#阀室' where ext_station='RTU11#阀室';
+update rt_config_new set ext_station='柯坪门站' where ext_station='柯坪末站';
+update rt_config_new set ext_station='英喀13#阀室' where ext_station='RTU13#阀室';
+update rt_config_new set ext_station='图木舒克输气站' where ext_station='图木舒克末站';
+update rt_config_new set ext_station='三岔压气站' where ext_station='三岔分输清管站';
+update rt_config_new set ext_station='巴楚门站' where ext_station='巴楚末站';
+update rt_config_new set ext_station='伽师总场门站' where ext_station='伽师总场末站';
+update rt_config_new set ext_station='英喀18#阀室' where ext_station='RTU18#阀室';
+update rt_config_new set ext_station='伽师输气站' where ext_station='伽师分输站';
+update rt_config_new set ext_station='岳普湖输气站' where ext_station='岳普湖分输站';
+update rt_config_new set ext_station='麦盖提输气站' where ext_station='麦盖提末站';
+update rt_config_new set ext_station='喀什压气站' where ext_station='喀什分输清管站';
+update rt_config_new set ext_station='阿喀输气管道1#阀室' where ext_station='RTU1#阀室';
+update rt_config_new set ext_station='乌恰门站' where ext_station='乌恰末站';
+update rt_config_new set ext_station='喀泽24#阀室' where ext_station='RTU24#阀室';
+update rt_config_new set ext_station='英吉沙输气站' where ext_station='英吉沙分输清管站';
+update rt_config_new set ext_station='东风农场门站' where ext_station='东风农场末站';
+update rt_config_new set ext_station='喀泽29#阀室' where ext_station='RTU29#阀室';
+update rt_config_new set ext_station='喀泽31#阀室' where ext_station='RTU31#阀室';
+update rt_config_new set ext_station='泽普压气站' where ext_station='泽普输气站';
+update rt_config_new set ext_station='皮山输气站' where ext_station='皮山分输站';
+update rt_config_new set ext_station='昆玉输气站' where ext_station='224团分输站';
+update rt_config_new set ext_station='和田压气站' where ext_station='和田输气站';
+update rt_config_new set ext_station='和民43#阀室' where ext_station='43#阀室';
+update rt_config_new set ext_station='策勒输气站' where ext_station='策勒分输站';
+update rt_config_new set ext_station='于田输气站' where ext_station='于田分输清管站';
+update rt_config_new set ext_station='民丰输气站' where ext_station='民丰分输清管站';
+update rt_config_new set ext_station='英喀输气管道' where ext_station='英喀干线';
+update rt_config_new set ext_station='阿瓦提输气管道' where ext_station='阿瓦提支线';
+update rt_config_new set ext_station='柯坪输气管道' where ext_station='柯坪支线';
+update rt_config_new set ext_station='伽师总场输气管道' where ext_station='伽师总场支线';
+update rt_config_new set ext_station='麦盖提输气管道' where ext_station='伽岳麦支线';
+update rt_config_new set ext_station='乌康输气管道' where ext_station='阿克至乌恰输气管线';
+update rt_config_new set ext_station='喀泽输气管道' where ext_station='喀泽干线';
+update rt_config_new set ext_station='阿克陶输气管道' where ext_station='阿克陶支线';
+update rt_config_new set ext_station='41团输气管道' where ext_station='41团支线';
+update rt_config_new set ext_station='东风农场输气管道' where ext_station='东风农场支线';
+update rt_config_new set ext_station='莎车输气管道' where ext_station='莎车支线';
+update rt_config_new set ext_station='皮山农场输气管道' where ext_station='皮山农场支线';
+update rt_config_new set ext_station='和泽输气管道' where ext_station='和泽干线';
+update rt_config_new set ext_station='和和输气管道（508）' where ext_station='和田河气田外输管线';
+update rt_config_new set ext_station='和民输气管道' where ext_station='和田至民丰净化气管线';
+
+
+
+
 
